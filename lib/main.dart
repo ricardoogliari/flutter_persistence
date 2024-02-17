@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(),
         '/key_value': (context) => const KeyValueScreen(),
         '/relational': (context) => RelationalScreen(),
-        '/nosql': (context) => const NoSQLScreen(),
+        '/nosql': (context) => NoSQLScreen(),
       },
     );
   }
