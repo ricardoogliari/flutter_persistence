@@ -17,7 +17,6 @@ class RelationalScreen extends StatefulWidget {
 class _RelationalScreenState extends State<RelationalScreen> {
 
   late SimpleDialog dialog;
-
   late Database _database;
 
   List<DataRow> rows = [];
@@ -155,6 +154,32 @@ class _RelationalScreenState extends State<RelationalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Empréstimos"),
+        actions: [
+          IconButton(
+              onPressed: (){
+                showDialog<void>(context: context, builder: (context) => dialog);
+              },
+              icon: const Icon(Icons.add)
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: DataTable(
+            columns: const [
+              DataColumn(label: Text("Quantidade")),
+              DataColumn(label: Text("Descrição")),
+              DataColumn(label: Text("Receptor")),
+            ],
+            rows: rows,
+          ),
+        ),
+      ),
+    );
   }
 }
