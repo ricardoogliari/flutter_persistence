@@ -124,6 +124,31 @@ class _NoSQLScreenState extends State<NoSQLScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Jobs"),
+        actions: [
+          IconButton(
+              onPressed: (){
+                showDialog<void>(context: context, builder: (context) => dialog);
+              },
+              icon: const Icon(Icons.add)
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: DataTable(
+            columns: const [
+              DataColumn(label: Text("Position")),
+              DataColumn(label: Text("Company")),
+            ],
+            rows: rows,
+          ),
+        ),
+      ),
+    );
   }
 }
