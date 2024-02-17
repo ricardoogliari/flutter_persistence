@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const MyHomePage(),
         '/key_value': (context) => const KeyValueScreen(),
-        '/relational': (context) => const RelationalScreen(),
+        '/relational': (context) => RelationalScreen(),
         '/nosql': (context) => const NoSQLScreen(),
       },
     );
